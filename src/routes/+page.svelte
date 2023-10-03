@@ -22,8 +22,8 @@
                 <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Chat-lut ! As-tu déja vu un chameau de compagnie ?</h1>
                 <p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">Sur Pawtrait découvrez et partagez une multitude d’images libre de droit d’animaux de compagnie.</p>
                 <div class="mt-10 flex items-center gap-x-6">
-                  <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Découvrir</a>
-                  <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Devenir membre<span aria-hidden="true">→</span></a>
+                  <a href="/galerie" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Découvrir</a>
+                  <a href="/inscription" class="text-sm font-semibold leading-6 text-gray-900">Devenir membre<span aria-hidden="true">→</span></a>
                 </div>
               </div>
               <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -60,3 +60,64 @@
       </div>
     </main>
   </div>
+
+
+
+
+
+
+
+<script>
+    import antoine from '$lib/assets/antoine.png';
+    import safia from '$lib/assets/safia.png';
+    import houda from '$lib/assets/houda.png';
+    import theo from '$lib/assets/theo.png';
+
+</script>
+
+
+  <div class="bg-gray-900 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Notre Equipe</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">Nous nous reunissons afin de creer </p>
+      </div>
+      <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
+        
+        <li>
+          <img class="aspect-[14/13] w-full rounded-2xl object-cover" src="{antoine}" alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Antoine</h3>
+          <p class="text-base leading-7 text-gray-300">Co-Founder / CEO</p>
+          <p class="text-sm leading-6 text-gray-500">"J'aime trop les chats! Plus tard, j'aimerais en adopter un."</p>
+        </li>
+        <li>
+          <img class="aspect-[14/13] w-full rounded-2xl object-cover" src="{houda}" alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Houda</h3>
+          <p class="text-base leading-7 text-gray-300">Full-Stack Developpeur</p>
+          <p class="text-sm leading-6 text-gray-500">"Si j'ai un chat un jour, je l'appellerais Walter white"</p>
+        </li>
+        <li>
+          <img class="aspect-[14/13] w-full rounded-2xl object-cover" src="{safia}" alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Safia</h3>
+          <p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
+          <p class="text-sm leading-6 text-gray-500">"Team chat aussi : ) Mais les chiens sont tout aussi mignon"</p>
+        </li>
+        <li>
+          <img class="aspect-[14/13] w-full rounded-2xl object-cover" src="{theo}" alt="">
+          <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Theo</h3>
+          <p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
+          <p class="text-sm leading-6 text-gray-500">J'envoi toujours des photos de chat a mes amis </p>
+        </li>
+  
+        <!-- More people... -->
+      </ul>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+  
