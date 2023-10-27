@@ -4,6 +4,13 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer')
+  ],
+
+  //activer les animations
+  animations: {
+  },
 }
 
