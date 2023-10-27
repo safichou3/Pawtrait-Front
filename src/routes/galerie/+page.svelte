@@ -67,6 +67,7 @@
                 <aside>
                     <h2 class="sr-only">Filters</h2>
 
+                    <!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
                     <button type="button" class="inline-flex items-center lg:hidden">
                         <span class="text-sm font-medium text-gray-700">Filters</span>
                         <svg class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -144,19 +145,17 @@
 
                                     <div class="like flex items-center gap-2 mt-2 justify-end">
                                         {#if likedImages.includes(dataKey.id)}
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer w-5 h-5"
-                                                 role="presentation"
-                                                 data-name="Layer 1" style="fill:red" viewBox="0 0 24 24"
-                                                 on:click={() => toggleLike(dataKey.id)}>
-                                                <path d="M17.5.917a6.4 6.4 0 0 0-5.5 3.3 6.4 6.4 0 0 0-5.5-3.3A6.8 6.8 0 0 0 0 7.967c0 6.775 10.956 14.6 11.422 14.932l.578.409.578-.409C13.044 22.569 24 14.742 24 7.967a6.8 6.8 0 0 0-6.5-7.05Z"/>
-                                            </svg>
-                                            <p>{likesCount[dataKey.id]}</p>
-                                        {:else}
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer w-5 h-5"
-                                                 role="presentation"
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer w-5 h-5" role="presentation"
                                                  data-name="Layer 1" style="fill:red" viewBox="0 0 24 24"
                                                  on:click={() => toggleLike(dataKey.id)}>
                                                 <path d="M14.75 7c-1.2 0-2.19.55-2.75 1.43C11.44 7.55 10.45 7 9.25 7 7.46 7 6 8.57 6 10.5c0 3.36 5.48 7.25 5.71 7.41l.29.2.29-.2c.23-.16 5.71-4.05 5.71-7.41C18 8.57 16.54 7 14.75 7ZM12 16.88c-1.63-1.2-5-4.16-5-6.38C7 9.12 8.01 8 9.25 8c1.32 0 2.25.92 2.25 2.23V11h1v-.77c0-1.31.93-2.23 2.25-2.23C15.99 8 17 9.12 17 10.5c0 2.22-3.37 5.18-5 6.38ZM12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0Zm0 23C5.93 23 1 18.07 1 12S5.93 1 12 1s11 4.93 11 11-4.93 11-11 11Z"/>
+                                            </svg>
+                                            <p>{likesCount[dataKey.id]}</p>
+                                        {:else}
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer w-5 h-5" role="presentation"
+                                                 data-name="Layer 1" style="fill:red" viewBox="0 0 24 24"
+                                                 on:click={() => toggleLike(dataKey.id)}>
+                                                <path d="M17.5.917a6.4 6.4 0 0 0-5.5 3.3 6.4 6.4 0 0 0-5.5-3.3A6.8 6.8 0 0 0 0 7.967c0 6.775 10.956 14.6 11.422 14.932l.578.409.578-.409C13.044 22.569 24 14.742 24 7.967a6.8 6.8 0 0 0-6.5-7.05Z"/>
                                             </svg>
                                             <p>{likesCount[dataKey.id]}</p>
                                         {/if}
