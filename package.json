@@ -26,7 +26,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+<<<<<<< HEAD
 		"svelte-carousel": "^1.0.25",
+=======
+>>>>>>> a50fb5e677bacf1f520beb743821c7b62e975664
 		"macy": "^2.5.1",
 		"svelte-infinite-scroll": "^2.0.1"
 	}
