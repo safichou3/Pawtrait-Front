@@ -26,6 +26,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-carousel": "^1.0.25"
+		"svelte-carousel": "^1.0.25",
+		"macy": "^2.5.1",
+		"svelte-infinite-scroll": "^2.0.1"
 	}
 }
