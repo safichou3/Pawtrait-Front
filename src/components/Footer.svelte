@@ -8,16 +8,13 @@
           <a href="/galerie" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Galerie</a>
         </div>
         <div class="pb-6">
-          <a href="/photo-de-la-semaine" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Photo de la semaine</a>
+          <a href="/classement" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Photo de la semaine</a>
         </div>
         <div class="pb-6">
           <a href="/connexion" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Se connecter</a>
         </div>
         <div class="pb-6">
           <a href="/inscription" class="text-sm leading-6 text-gray-600 hover:text-gray-900">S'inscrire</a>
-        </div>
-        <div class="pb-6">
-          <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Découvrir</a>
         </div>
       </nav>
       <div class="mt-10 flex justify-center space-x-10">
