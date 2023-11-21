@@ -1,25 +1,24 @@
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-    const initialData = {
-        username: '',
-        password: '',
-        rememberMe: false,
-    };
-
     return {
-        data: initialData,
+        data: {
+            username: 'dd',
+            password: 'dd',
+            rememberMe: false,
+            responseData: {}
+        }
     };
 };
 
+
 /** @type {import('./$types').Actions} */
 export const actions = {
-	login: async ({request}) => {
+	login: async ({cookies,request}) => {
         const data = await request.formData();        
         const username = data.get('username');        
         const password = data.get('password');
         const rememberMe = data.get('rememberMe');
-
-        console.log(username);
 		try {
             const response = await fetch('http://localhost:8080/api/authenticate', {
                 method: 'POST',
@@ -34,7 +33,11 @@ export const actions = {
             });
             if (response.ok) {
                 const responseData = await response.json();
-                console.log('Token de connexion:', responseData.id_token);
+                console.log(responseData);
+                cookies.set('sessionid', responseData.id_token);
+
+		return { success: true };
+
             } else {
                 console.error('Échec de l\'authentification:', response.status, response.statusText, response.json);
             }
@@ -43,6 +46,3 @@ export const actions = {
         }
 }
 };
-
-
-
