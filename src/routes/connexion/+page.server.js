@@ -11,7 +11,6 @@ export async function load() {
     };
 };
 
-
 /** @type {import('./$types').Actions} */
 export const actions = {
 	login: async ({cookies,request}) => {
