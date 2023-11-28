@@ -1,0 +1,66 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\safia\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js dev
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\wamp64\bin\php\php5.6.40;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Users\safia\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Users\safia\scoop\shims;C:\Users\safia\AppData\Local\Microsoft\WindowsApps;C:\Users\safia\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\safia\AppData\Roaming\Composer\vendor\bin;C:\Users\safia\AppData\Roaming\npm;C:\Users\safia\Documents\2BCI\flutter\bin;C:\wamp64\bin\php\php8.1.0;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Users\safia\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\safia\AppData\Local\Microsoft\WindowsApps;C:\Users\safia\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\safia\AppData\Roaming\Composer\vendor\bin;C:\Users\safia\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\safia\Documents\2BCI\flutter\bin;C:\wamp64\bin\php\php8.1.0;C:\Users\safia\AppData\Local\Programs\Hyper\resources\bin;C:\Users\safia\.jdks\semeru-17.0.9\bin;C:\Users\safia\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\safia\AppData\Roaming\apache-maven-3.8.8\bin;C:\Users\safia\AppData\Local\JetBrains\Toolbox\scripts;;C:\Users\safia\Documents\3BCI\Pawtrait\Pawtrait-Frontend\node_modules\.bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\safia\Documents\3BCI\Pawtrait\Pawtrait-Frontend\package.json: Unexpected token < in JSON at position 733
+      at JSON.parse (<anonymous>)
+      at C:\Users\safia\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\safia\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\safia\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+  	"name": "pawtrait-front",
+  	"version": "0.0.1",
+  	"private": true,
+  	"scripts": {
+  		"dev": "vite dev",
+  		"build": "vite build",
+  		"preview": "vite preview",
+  		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+  		"format": "prettier --plugin-search-dir . --write ."
+  	},
+  	"devDependencies": {
+  		"@sveltejs/adapter-auto": "^2.0.0",
+  		"@sveltejs/kit": "^1.20.4",
+  		"autoprefixer": "^10.4.16",
+  		"eslint": "^8.28.0",
+  		"eslint-config-prettier": "^8.5.0",
+  		"eslint-plugin-svelte": "^2.30.0",
+  		"postcss": "^8.4.30",
+  		"prettier": "^2.8.0",
+  		"prettier-plugin-svelte": "^2.10.1",
+  		"svelte": "^4.0.5",
+  		"tailwindcss": "^3.3.3",
+  		"tailwindcss-animated": "^1.0.1",
+  		"vite": "^4.4.2"
+  	},
+  	"type": "module",
+  	"dependencies": {
+  <<<<<<< HEAD
+  		"svelte-carousel": "^1.0.25",
+  =======
+  >>>>>>> a50fb5e677bacf1f520beb743821c7b62e975664
+  		"macy": "^2.5.1",
+  		"svelte-infinite-scroll": "^2.0.1"
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
