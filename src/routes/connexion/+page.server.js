@@ -1,15 +1,15 @@
 
-// /** @type {import('./$types').PageServerLoad} */
-// export async function load() {
-//     return {
-//         data: {
-//             username: 'dd',
-//             password: 'dd',
-//             rememberMe: false,
-//             responseData: {}
-//         }
-//     };
-// };
+/** @type {import('./$types').PageServerLoad} */
+export async function load() {
+    return {
+        data: {
+            username: '',
+            password: '',
+            rememberMe: false,
+            responseData: {}
+        }
+    };
+};
 
 /** @type {import('./$types').Actions} */
 export const actions = {
