@@ -33,6 +33,6 @@
 {#if form?.success}
 	<p>Successfully logged in! Welcome back</p>  
   <script>
-    window.location.href = '/';
+    window.location.href = '/galerie';
   </script>
 {/if}
