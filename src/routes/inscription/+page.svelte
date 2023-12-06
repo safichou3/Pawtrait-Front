@@ -1,7 +1,7 @@
 <script>
   /** @type {import('./$types').PageData} */
   export let data;
-   
+
   /** @type {import('./$types').ActionData} */
   export let form;
 </script>
@@ -9,7 +9,7 @@
 <div>
   <h1>Formulaire d'Inscription</h1>
   <form method="POST" action="?/register">
-    
+
     <label>
       Nom d'utilisateur:
       <input type="text" name='login' />
