@@ -10,7 +10,7 @@ export async function load() {
             email:""
         }
     };
-};
+}
 
 
 /** @type {import('./$types').Actions} */

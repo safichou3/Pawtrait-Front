@@ -1,11 +1,11 @@
-<script>
+<!--<script>
     // Dans UserList.svelte
-    // import {onMount} from "svelte";
+    import {onMount} from "svelte";
 
     let users = [];
 
-    /*    async function fetchUsers() {
-            const response = await fetch('http://localhost:8080/api/tags'); // Remplacez par l'URL de votre API
+        async function fetchUsers() {
+            const response = await fetch('http://localhost:8080/application-users/:id'); // Remplacez par l'URL de votre API
             if (response.ok) {
                 users = await response.json();
             }
@@ -15,17 +15,126 @@
                 // Appelez fetchUsers() pour récupérer les données utilisateur
                 fetchUsers()
             }
-        )*/
+        )
 
+</script>-->
+
+<!--<script>
+    import {onMount} from 'svelte';
+
+    let userProfile = {};
+
+    async function fetchUserProfile() {
+        // Replace 'userId' with the actual user ID you want to fetch.
+        // Normally, you'd get this ID from the logged-in user session or from the URL.
+        const userId = 'the-user-id';
+        const response = await fetch(`http://localhost:8080/api/application-users/${userId}`);
+        if (response.ok) {
+            userProfile = await response.json();
+        } else {
+            // Handle any errors here, such as showing a message to the user
+            console.error('Failed to fetch user profile:', response.statusText);
+        }
+    }
+
+    // Call the fetchUserProfile function when the component is mounted
+    onMount(fetchUserProfile);
+
+
+</script>-->
+
+<!--
+<script>
+    import {onMount} from 'svelte';
+
+    let userProfile = {};
+    let loading = true;
+    let errorMessage = '';
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function parseJwt(token) {
+        try {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    async function fetchUserProfile(userId) {
+        try {
+            const response = await fetch(`http://localhost:8080/api/application-users/${userId}`);
+            if (response.ok) {
+                userProfile = await response.json();
+            } else {
+                throw new Error('Failed to fetch user profile: ' + response.statusText);
+            }
+        } catch (error) {
+            errorMessage = error.message;
+        } finally {
+            loading = false;
+        }
+    }
+
+    onMount(() => {
+        const token = getCookie('sessionid');
+        if (token) {
+            const decodedToken = parseJwt(token);
+            if (decodedToken && decodedToken.sub) {
+                fetchUserProfile(decodedToken.sub);
+            } else {
+                errorMessage = 'User ID not found in decoded token';
+                loading = false;
+            }
+        } else {
+            errorMessage = 'Session ID cookie not found';
+            loading = false;
+        }
+    });
+</script>
+-->
+
+<script>
+    // These props will be populated with the data returned from the load function
+    export let userProfile;
+    // console.log(userProfile)
+    export let error;
 </script>
 
-<!-- Dans UserList.svelte -->
-<ul>
-    {#each users as user (user.id)}
-        <li>{user.username}</li>
-    {/each}
-</ul>
-<div class="flex flex-col items-center justify-center px-8">
+{#if error}
+    <p>An error occurred: {error}</p>
+{:else}
+    <!-- Render the user's information here -->
+    <div>
+        <h1>User Profile</h1>
+        {userProfile}
+        <!--            <p>Username: {userProfile.username}</p>-->
+        <!--            <p>First Name: {userProfile.firstName}</p>-->
+        <!--        <p>Last Name: {userProfile.lastName}</p>-->
+        <!--        <p>Email: {userProfile.email}</p>-->
+        <!-- Add other user details as needed -->
+    </div>
+{/if}
+
+<!--<div class="flex flex-col items-center justify-center px-8">
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
             <div class="flex justify-center">
@@ -66,5 +175,5 @@
         </div>
     </div>
     <p>Ajoute des photos à ton profil</p>
-</div>
+</div>-->
 
