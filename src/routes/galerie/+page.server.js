@@ -27,7 +27,6 @@ export async function load({ cookies }) {
         if (response.ok && responseCategories.ok) {
             const data = await response.json();
             const dataCategories = await responseCategories.json();
-            console.log(dataCategories);
             
             // Returning an object with data and dataCategories
             return { data, dataCategories };

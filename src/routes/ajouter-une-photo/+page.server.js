@@ -4,7 +4,6 @@ import cloudinary from '../../lib/cloudinary-config.js';
 export async function load({ cookies }) {
     try {
         const accessToken = cookies.get('sessionid');
-
         const response = await fetch('http://localhost:8080/api/categories', {
             method: 'GET',
             headers: {
@@ -15,6 +14,7 @@ export async function load({ cookies }) {
 
         if (response.ok) {
             const dataCategories = await response.json();
+
             return {
                 categories: dataCategories,
             };
@@ -37,11 +37,12 @@ export const actions = {
             const description = data.get('description');
             const categoryId = data.get('categoryId');
             const file = data.get('photoUrl');
+            const createdAt = new Date();
 
-            console.log(file);
+            const userId = cookies.get('userid');
 
             let userObject = {
-                id: "655c8964160ae92dfeaa8391"
+                id: userId
             };
 
             let categoryObject = {
@@ -63,16 +64,17 @@ export const actions = {
 
                 const response = await fetch('http://localhost:8080/api/photos', {
                     method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                },
-                body: JSON.stringify({
-                    photoUrl,
-                    categoryObject,
-                    userObject,
-                    description
-                }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    },
+                    body: JSON.stringify({
+                        photoUrl,
+                        category: categoryObject,
+                        user: userObject,
+                        description,
+                        createdAt
+                    }),
                 });
 
                 if (response.ok) {

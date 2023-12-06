@@ -32,16 +32,30 @@ export const actions = {
             });
             if (response.ok) {
                 const responseData = await response.json();
-                console.log(responseData);
+
                 cookies.set('sessionid', responseData.id_token);
+
+                const response2 = await fetch('http://localhost:8080/api/account', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${responseData.id_token}`,
+                    },
+                });
+
+                const dataUser = await response2.json();
+
+                cookies.set('userid', dataUser.id);
 
                 return { success: true };
 
             } else {
-                console.error('Échec de l\'authentification:', response.status, response.statusText, response.json);
+                const errorResponseData = await response.json();
+                return { error: errorResponseData.message };
             }
         } catch (error) {
             console.error('Erreur lors de la requête:', error);
+            return { error: 'Une erreur s\'est produite lors de la requête.' };
         }
     }
 };
