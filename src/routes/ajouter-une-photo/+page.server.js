@@ -55,41 +55,38 @@ export const actions = {
             formData.append('description', description);
             formData.append('user', JSON.stringify(userObject));
             formData.append('category', JSON.stringify(categoryObject));
-
-
             formData.append('file', file); // Ajoute le fichier à formData sous la clé 'file'
 
-            console.log(formData);
-
-            const data2 = {
-                photoUrl: "https://cdn.pixabay.com/photo/2019/11/08/11/56/kitten-4611189_1280.jpg",
-                description: "a",
+            const dataSend = {
+                photoUrl: photoUrl,
+                description: description,
                 user: {
                     id: "655c9060160ae92dfeaa8393"
                 },
                 category: {
-                    id: "650c539c6f14ba46cb2f5b24"
+                    id: categoryId
                 }
             };
 
             const response = await fetch('http://localhost:8080/api/photos', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(dataSend),
                 headers: {
                     // 'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`, // Ajouter le token d'accès à l'en-tête
                 },
-            });
+        });
 
-            if (response.ok) {
-                const responseData = await response.json();
-                console.log(responseData);
-                return { success: true };
-            } else {
-                console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
-            }
-        } catch (error) {
-            console.error('Erreur lors de la requête de photo:', error);
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log(responseData);
+            return { success: true };
+        } else {
+            console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
         }
-    },
+    } catch(error) {
+        console.error('Erreur lors de la requête de photo:', error);
+    }
+},
 };
