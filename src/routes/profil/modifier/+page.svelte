@@ -1,7 +1,8 @@
 <script>
-/*    // let users = [];
 
-    /!*    async function fetchUsers() {
+    // let users = [];
+
+    /*    async function fetchUsers() {
             const response = await fetch('http://localhost:8080/api/tags'); // Remplacez par l'URL de votre API
             if (response.ok) {
                 users = await response.json();
@@ -12,43 +13,44 @@
                 // Appelez fetchUsers() pour récupérer les données utilisateur
                 fetchUsers()
             }
+<<<<<<< HEAD
         )*!/*/
 
-/*import { onMount } from 'svelte';
-let username, bio, oldPassword, newPassword;
-let profilePhoto; // This will hold the file for the image
+    /*import { onMount } from 'svelte';
+    let username, bio, oldPassword, newPassword;
+    let profilePhoto; // This will hold the file for the image
 
-function handlePhotoChange(event) {
-    const files = event.target.files;
-    if (files.length > 0) {
-        profilePhoto = files[0];
-        // Optionally, set up image preview here
-    }
-}
-
-async function handleSubmit() {
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('bio', bio);
-    formData.append('oldPassword', oldPassword);
-    formData.append('newPassword', newPassword);
-    if (profilePhoto) {
-        formData.append('photo', profilePhoto);
+    function handlePhotoChange(event) {
+        const files = event.target.files;
+        if (files.length > 0) {
+            profilePhoto = files[0];
+            // Optionally, set up image preview here
+        }
     }
 
-    const response = await fetch('/api/your-update-endpoint', {
-        method: 'PUT', // or 'PATCH'
-        body: formData,
-        // Do not set 'Content-Type' header when sending FormData
-        // headers: { ... }
-    });
+    async function handleSubmit() {
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('bio', bio);
+        formData.append('oldPassword', oldPassword);
+        formData.append('newPassword', newPassword);
+        if (profilePhoto) {
+            formData.append('photo', profilePhoto);
+        }
 
-    if (response.ok) {
-        // Handle success
-    } else {
-        // Handle error
-    }
-}*/
+        const response = await fetch('/api/your-update-endpoint', {
+            method: 'PUT', // or 'PATCH'
+            body: formData,
+            // Do not set 'Content-Type' header when sending FormData
+            // headers: { ... }
+        });
+
+        if (response.ok) {
+            // Handle success
+        } else {
+            // Handle error
+        }
+    }*/
 
 </script>
 

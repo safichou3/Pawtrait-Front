@@ -1,5 +1,6 @@
 <!--<script>
     // Dans UserList.svelte
+<<<<<<< HEAD
     import {onMount} from "svelte";
 
     let users = [];
@@ -39,6 +40,24 @@
 
     // Call the fetchUserProfile function when the component is mounted
     onMount(fetchUserProfile);
+=======
+    // import {onMount} from "svelte";
+
+    let users = [];
+
+    /*    async function fetchUsers() {
+            const response = await fetch('http://localhost:8080/api/tags'); // Remplacez par l'URL de votre API
+            if (response.ok) {
+                users = await response.json();
+            }
+        }
+
+        onMount(() => {
+                // Appelez fetchUsers() pour récupérer les données utilisateur
+                fetchUsers()
+            }
+        )*/
+>>>>>>> ab747574b5b33bbda1a907747ad8652a72bd53f2
 
 
 </script>-->
@@ -135,6 +154,7 @@
 {/if}
 
 <!--<div class="flex flex-col items-center justify-center px-8">
+
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
             <div class="flex justify-center">
