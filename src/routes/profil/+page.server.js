@@ -3,7 +3,6 @@ import {parse} from 'cookie';
 export async function load({request}) {
     const cookies = parse(request.headers.get('cookie') || '');
     const sessionId = cookies.sessionid;
-    console.log(sessionId)
 
     if (!sessionId) {
         console.error('Session ID cookie not found');
@@ -11,9 +10,9 @@ export async function load({request}) {
     }
 
     try {
-        const userId = decodeSessionId(sessionId);
-        console.log(userId)
-        const response = await fetch(`http://localhost:8080/api/admin/users/public/${userId}`, {
+        // const userId = decodeSessionId(sessionId);
+        // const response = await fetch(`http://localhost:8080/api/admin/users/public/${userId}`, {
+        const response = await fetch(`http://localhost:8080/api/account`, {
             headers: {
                 'Authorization': `Bearer ${sessionId}`
             }
@@ -26,7 +25,8 @@ export async function load({request}) {
         }
 
         const userProfile = await response.json();
-        return {props: {userProfile}};
+        // console.log(userProfile)
+        return userProfile;
 
     } catch (error) {
         console.error('Error in load function:', error);
