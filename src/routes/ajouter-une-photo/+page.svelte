@@ -5,9 +5,8 @@
 
 <form method="POST" action="?/sendImage">
 	<label for="file">File:</label>
-	<input type="file" id="fileInput" name="fileInput"/>
-	<label for="photoUrl">Photo URL:</label>
-	<input type="text" id="photoUrl" name="photoUrl" required /><br />
+	<input type="file" id="photoUrl" name="photoUrl"/>
+
 
 	<label for="description">Description:</label>
 	<input type="text" id="description" name="description" required /><br />
