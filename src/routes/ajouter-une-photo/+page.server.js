@@ -1,3 +1,5 @@
+import cloudinary from '../../lib/cloudinary-config.js';
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ cookies }) {
     try {
@@ -7,16 +9,14 @@ export async function load({ cookies }) {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`, // Ajouter le token d'accès à l'en-tête
-
+                'Authorization': `Bearer ${accessToken}`,
             },
         });
 
         if (response.ok) {
             const dataCategories = await response.json();
-            // Assuming categoriesData is an array of category objects
             return {
-                categories: dataCategories, // Return an object with a key
+                categories: dataCategories,
             };
         } else {
             console.error('Échec de récupération des catégories:', response.status, response.statusText, await response.json());
@@ -27,7 +27,6 @@ export async function load({ cookies }) {
         return { success: false };
     }
 }
-
 /** @type {import('./$types').Actions} */
 export const actions = {
     sendImage: async ({ cookies, request }) => {
@@ -35,10 +34,9 @@ export const actions = {
             const accessToken = cookies.get('sessionid');
 
             const data = await request.formData();
-            const photoUrl = data.get('photoUrl');
             const description = data.get('description');
             const categoryId = data.get('categoryId');
-            const file = data.get('fileInput');
+            const file = data.get('photoUrl');
 
             console.log(file);
 
@@ -50,43 +48,48 @@ export const actions = {
                 id: categoryId
             };
 
-            const formData = new FormData();
-            formData.append('photoUrl', photoUrl);
-            formData.append('description', description);
-            formData.append('user', JSON.stringify(userObject));
-            formData.append('category', JSON.stringify(categoryObject));
-            formData.append('file', file); // Ajoute le fichier à formData sous la clé 'file'
+            // Encode file in base64
+            const fileBase64 = await file.arrayBuffer()
+                .then(buffer => Buffer.from(buffer).toString('base64'));
 
-            const dataSend = {
-                photoUrl: photoUrl,
-                description: description,
-                user: {
-                    id: "655c9060160ae92dfeaa8393"
-                },
-                category: {
-                    id: categoryId
-                }
-            };
+            // Upload image to Cloudinary
+            const cloudinaryResponse = await cloudinary.v2.uploader.upload(`data:image/png;base64,${fileBase64}`, {
+                folder: 'pawtrait',
+            });
 
-            const response = await fetch('http://localhost:8080/api/photos', {
-                method: 'POST',
-                body: JSON.stringify(dataSend),
+            if (cloudinaryResponse.secure_url) {
+                const photoUrl = cloudinaryResponse.secure_url;
+
+
+                const response = await fetch('http://localhost:8080/api/photos', {
+                    method: 'POST',
                 headers: {
-                    // 'Content-Type': 'multipart/form-data',
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`, // Ajouter le token d'accès à l'en-tête
+                    'Authorization': `Bearer ${accessToken}`,
                 },
-        });
+                body: JSON.stringify({
+                    photoUrl,
+                    categoryObject,
+                    userObject,
+                    description
+                }),
+                });
 
-        if (response.ok) {
-            const responseData = await response.json();
-            console.log(responseData);
-            return { success: true };
-        } else {
-            console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log(responseData);
+                    return { success: true };
+                } else {
+                    console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
+                    return { success: false };
+                }
+            } else {
+                console.error('Échec de l\'upload vers Cloudinary');
+                return { success: false };
+            }
+        } catch (error) {
+            console.error('Erreur lors de la requête de photo:', error);
+            return { success: false };
         }
-    } catch(error) {
-        console.error('Erreur lors de la requête de photo:', error);
-    }
-},
+    },
 };

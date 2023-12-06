@@ -3,7 +3,7 @@
 	export let data;
 </script>
 
-<form method="POST" action="?/sendImage">
+<form method="POST" action="?/sendImage" enctype="multipart/form-data">
 	<label for="file">File:</label>
 	<input type="file" id="photoUrl" name="photoUrl"/>
 
