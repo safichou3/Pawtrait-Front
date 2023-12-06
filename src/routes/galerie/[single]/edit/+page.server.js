@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch, params, cookies }) {
+export async function load({ params, cookies }) {
     // const response = await fetch("https://api.thecatapi.com/v1/images/search?api_key=live_c62EzoEgHNw9QRdu9JB4fU9JnZnBOpzV4SKpxaEo5iWNPAXIs7AM04Y4Vss31D6E/" + params.single);
     // const data = await response.json();
     // return {

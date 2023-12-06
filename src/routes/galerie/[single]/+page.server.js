@@ -1,11 +1,8 @@
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch, params, cookies }) {
+export async function load({ cookies, params }) {
     try {
         // Récupérer le token d'accès de vos cookies ou de l'endroit approprié
         const accessToken = cookies.get('sessionid');
-
-        console.log(accessToken);
-        console.log(params.single);
 
         // Fetch photos
         const response = await fetch('http://localhost:8080/api/photos/' + params.single, {
@@ -17,13 +14,11 @@ export async function load({ fetch, params, cookies }) {
             // Vous n'avez pas besoin du corps (body) pour une requête GET
         });
 
-        console.log(response);
-
         // Check if both requests were successful
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
 
+            console.log(data);
             // Returning an object with data and dataCategories
             return { data };
         } else {
@@ -33,4 +28,4 @@ export async function load({ fetch, params, cookies }) {
     } catch (error) {
         console.error('Erreur lors de la requête:', error);
     }
-};
+}
