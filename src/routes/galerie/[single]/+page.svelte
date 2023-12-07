@@ -194,3 +194,11 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	  
+	  .img-width {
+    border-radius: 8px;
+    width: 667px;
+}
+</style>
