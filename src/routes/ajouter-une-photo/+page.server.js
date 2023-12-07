@@ -27,6 +27,8 @@ export async function load({ cookies }) {
         return { success: false };
     }
 }
+// ... (autres importations)
+
 /** @type {import('./$types').Actions} */
 export const actions = {
     sendImage: async ({ cookies, request }) => {
@@ -61,28 +63,50 @@ export const actions = {
             if (cloudinaryResponse.secure_url) {
                 const photoUrl = cloudinaryResponse.secure_url;
 
-
-                const response = await fetch('http://localhost:8080/api/photos', {
+                // Appel de l'API Flask pour la détection NSFW
+                const detectNSFWResponse = await fetch('http://localhost:5000/api/detect-nsfw', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${accessToken}`,
                     },
                     body: JSON.stringify({
                         photoUrl,
-                        category: categoryObject,
-                        user: userObject,
-                        description,
-                        createdAt
                     }),
                 });
 
-                if (response.ok) {
-                    const responseData = await response.json();
-                    console.log(responseData);
-                    return { success: true };
+                if (detectNSFWResponse.ok) {
+                    const nsfwData = await detectNSFWResponse.json();
+                    const isNSFW = nsfwData[0]['porn'] > 0.5;  // Adapter en fonction de votre modèle
+
+                    // Faites quelque chose avec le résultat de la détection NSFW
+                    console.log('Est-ce NSFW ?', isNSFW);
+
+                    // Envoi de la photo avec la vérification réussie
+                    const response = await fetch('http://localhost:8080/api/photos', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${accessToken}`,
+                        },
+                        body: JSON.stringify({
+                            photoUrl,
+                            category: categoryObject,
+                            user: userObject,
+                            description,
+                            createdAt
+                        }),
+                    });
+
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        console.log(responseData);
+                        return { success: true };
+                    } else {
+                        console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
+                        return { success: false };
+                    }
                 } else {
-                    console.error('Échec de l\'envoi de photo:', response.status, response.statusText, await response.json());
+                    console.error('Échec de la détection NSFW:', detectNSFWResponse.status, detectNSFWResponse.statusText, await detectNSFWResponse.json());
                     return { success: false };
                 }
             } else {
