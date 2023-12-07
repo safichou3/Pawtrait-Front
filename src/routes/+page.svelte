@@ -10,185 +10,33 @@
 
 </script>
 
-<div class="bg-white">
-	<main>
-		<div class="relative isolate">
-			<svg
-				class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
-				aria-hidden="true"
-			>
-				<defs>
-					<pattern
-						id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
-						width="200"
-						height="200"
-						x="50%"
-						y="-1"
-						patternUnits="userSpaceOnUse"
-					>
-						<path d="M.5 200V.5H200" fill="none" />
-					</pattern>
-				</defs>
-				<svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-					<path
-						d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-						stroke-width="0"
-					/>
-				</svg>
-				<rect
-					width="100%"
-					height="100%"
-					stroke-width="0"
-					fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
-				/>
-			</svg>
-			<div
-				class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-				aria-hidden="true"
-			>
-				<div
-					class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-					style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"
-				/>
-			</div>
-			<div class="overflow-hidden">
-				<div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
-					<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-						<div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-							<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-								Chat-lut ! As-tu déja vu un chameau de compagnie ?
-							</h1>
-							<p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-								Sur Pawtrait découvrez et partagez une multitude d’images libre de droit d’animaux
-								de compagnie.
-							</p>
-							<div class="mt-10 flex items-center gap-x-6">
-								<a
-									href="/galerie"
-									class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-									>Découvrir</a
-								>
-								<a href="/inscription" class="text-sm font-semibold leading-6 text-gray-900"
-									>Devenir membre<span aria-hidden="true">→</span></a
-								>
-							</div>
-						</div>
-						<div
-							class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
-						>
-							<div
-								class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80"
-							>
-								<div class="relative">
-									<img
-										src="https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"
-										alt=""
-										class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-									/>
-									<div
-										class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
-									/>
-								</div>
-							</div>
-							<div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-								<div class="relative">
-									<img
-										src="https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg"
-										alt=""
-										class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-									/>
-									<div
-										class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
-									/>
-								</div>
-								<div class="relative">
-									<img
-										src="https://cdn.pixabay.com/photo/2020/04/22/07/03/ferret-5076246_1280.jpg"
-										alt=""
-										class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-									/>
-									<div
-										class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
-									/>
-								</div>
-							</div>
-							<div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-								<div class="relative">
-									<img
-										src="https://cdn.pixabay.com/photo/2019/05/08/21/21/cat-4189697_1280.jpg"
-										alt=""
-										class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-									/>
-									<div
-										class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
-									/>
-								</div>
-								<div class="relative">
-									<img
-										src="https://cdn.pixabay.com/photo/2018/04/23/14/38/dog-3344414_1280.jpg"
-										alt=""
-										class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-									/>
-									<div
-										class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+<div class="relative overflow-hidden bg-cover bg-no-repeat bg-[70%] h-[600px] bg-[url('https://res.cloudinary.com/dati0zk7b/image/upload/v1701946817/qdyrtcuthapsmrpgxhxr.jpg')]">
+    <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0%)]">
+        <div class="flex h-full items-center justify-center">
+            <div class="px-6 text-center text-white md:px-12">
+                <h1 class="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+                    Explore le monde fascinant <br /><span>des animaux</span>
+                </h1>
+                <a class="mb-2 inline-block rounded-full border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
+                    data-te-ripple-init data-te-ripple-color="light" href="#!" role="button">Créer un compte</a>
+                <a class="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
+                    data-te-ripple-init data-te-ripple-color="light" href="#!" role="button">Découvrir</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="bg-gray-900 py-24 sm:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl lg:mx-0">
-			<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Notre Equipe</h2>
-			<p class="mt-6 text-lg leading-8 text-gray-300">Nous nous reunissons afin de creer</p>
-		</div>
-		<ul
-			role="list"
-			class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
-		>
-			<li>
-				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={antoine} alt="" />
-				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Antoine</h3>
-				<p class="text-base leading-7 text-gray-300">Co-Founder / CEO</p>
-				<p class="text-sm leading-6 text-gray-500">
-					"J'aime trop les chats! Plus tard, j'aimerais en adopter un."
-				</p>
-			</li>
-			<li>
-				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={houda} alt="" />
-				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Houda</h3>
-				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur</p>
-				<p class="text-sm leading-6 text-gray-500">
-					"Si j'ai un chat un jour, je l'appellerais Walter white"
-				</p>
-			</li>
-			<li>
-				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={safia} alt="" />
-				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Safia</h3>
-				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
-				<p class="text-sm leading-6 text-gray-500">
-					"Team chat aussi : ) Mais les chiens sont tout aussi mignon"
-				</p>
-			</li>
-			<li>
-				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={theo} alt="" />
-				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Theo</h3>
-				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
-				<p class="text-sm leading-6 text-gray-500">
-					J'envoi toujours des photos de chat a mes amis
-				</p>
-			</li>
 
-			<!-- More people... -->
-		</ul>
-	</div>
+<div
+class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
+<svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
+	fill="currentColor"></path>
+</svg>
 </div>
+<br>
+<br>
+
 
 <div class="overflow-hidden bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -297,5 +145,53 @@
 				height="1442"
 			/>
 		</div>
+	</div>
+</div>
+
+<div class="bg-gray-900 py-24 sm:py-32">
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl lg:mx-0">
+			<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Notre Equipe</h2>
+			<p class="mt-6 text-lg leading-8 text-gray-300">Nous nous reunissons afin de creer</p>
+		</div>
+		<ul
+			role="list"
+			class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
+		>
+			<li>
+				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={antoine} alt="" />
+				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Antoine</h3>
+				<p class="text-base leading-7 text-gray-300">Co-Founder / CEO</p>
+				<p class="text-sm leading-6 text-gray-500">
+					"J'aime trop les chats! Plus tard, j'aimerais en adopter un."
+				</p>
+			</li>
+			<li>
+				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={houda} alt="" />
+				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Houda</h3>
+				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur</p>
+				<p class="text-sm leading-6 text-gray-500">
+					"Si j'ai un chat un jour, je l'appellerais Walter white"
+				</p>
+			</li>
+			<li>
+				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={safia} alt="" />
+				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Safia</h3>
+				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
+				<p class="text-sm leading-6 text-gray-500">
+					"Team chat aussi : ) Mais les chiens sont tout aussi mignon"
+				</p>
+			</li>
+			<li>
+				<img class="aspect-[14/13] w-full rounded-2xl object-cover" src={theo} alt="" />
+				<h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">Theo</h3>
+				<p class="text-base leading-7 text-gray-300">Full-Stack Developpeur | Designeur</p>
+				<p class="text-sm leading-6 text-gray-500">
+					J'envoi toujours des photos de chat a mes amis
+				</p>
+			</li>
+
+			<!-- More people... -->
+		</ul>
 	</div>
 </div>

@@ -4,6 +4,7 @@
    data = data.top3
    console.log(data)
 </script>
+{#if data.length > 0}
 <section class="bg-[#A06CD5]">
   <!-- Container -->
   <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
@@ -60,6 +61,19 @@
    
   </div>
 </section>
+{:else}
+<section class="bg-[#A06CD5]">
+  <!-- Container -->
+  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
+    <h2 class="mx-auto text-white pb-12 my-8 max-w-3xl text-center text-3xl font-extrabold md:mb-12 md:text-5xl">Classement hebdomadaire</h2>
+    <!-- Testimonial Content -->
+    <div class="mb-5 grid grid-cols-1 gap-5">
+      <h3 class="mx-auto text-white pb-12 my-8 max-w-3xl text-center  font-extrabold md:mb-12">Il n'y a pas encore de photos pour le classement !</h3>
+    </div>
+   
+  </div>
+</section>
+{/if}
 
 <style>
   .separator{
