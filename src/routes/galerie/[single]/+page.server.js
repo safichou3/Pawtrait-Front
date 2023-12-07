@@ -17,8 +17,9 @@ export async function load({ cookies, params }) {
         // Check if both requests were successful
         if (response.ok) {
             const data = await response.json();
-
             console.log(data);
+
+            console.log(data.category);
             // Returning an object with data and dataCategories
             return { data };
         } else {

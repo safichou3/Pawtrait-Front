@@ -24,7 +24,7 @@
 
 <div class="flex justify-center gap-10 max-md:flex-col-reverse">
 	<div class="left flex flex-col pl-3">
-		<img src={data.data.imageUrl} alt="" />
+		<img src={data.data.photoUrl} alt="" />
 		<p class="date mt-2 text-right">23/10/2023</p>
 		<div class="mt-2 tags text-center flex justify-around gap-2">
 			<button class="border-2 px-4 py-1 bg-red-100 border-2 text-red-800 border-red-600 rounded-lg"
