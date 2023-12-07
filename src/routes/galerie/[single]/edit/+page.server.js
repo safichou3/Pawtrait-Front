@@ -11,8 +11,12 @@ export async function load({ params, cookies }) {
         // Récupérer le token d'accès de vos cookies ou de l'endroit approprié
         const accessToken = cookies.get('sessionid');
 
+        console.log(params);
+        
+        console.log(params.single);
+        
         // Fetch photos
-        const response = await fetch('http://localhost:8080/api/photos/' + params.single, {
+        const response = await fetch('http://localhost:8080/api/photo-with-categories/' + params.single, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

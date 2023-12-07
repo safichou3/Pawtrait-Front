@@ -15,3 +15,7 @@
 .animate-spin {
     animation: spin 1s linear;
 }
+
+.img-width{
+    width: 800px;
+}

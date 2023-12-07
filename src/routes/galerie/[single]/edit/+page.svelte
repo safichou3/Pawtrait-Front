@@ -1,6 +1,19 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
+
+	import { onMount } from 'svelte';
+
+	let formattedDate = '';
+
+	onMount(() => {
+		const date = new Date(data.data.createdAt);
+		formattedDate = date.toLocaleDateString('fr-FR', {
+			day: '2-digit',
+			month: 'long',
+			year: 'numeric'
+		});
+	});
 </script>
 
 <div>
@@ -24,8 +37,8 @@
 
 <div class="flex justify-center gap-10 max-md:flex-col-reverse">
 	<div class="left flex flex-col pl-3">
-		<img src={data.data.photoUrl} alt="" />
-		<p class="date mt-2 text-right">23/10/2023</p>
+		<img src={data.data.photoUrl} alt="" class="img-width" />
+		<p class="date mt-2 text-right">Publiée le {formattedDate}</p>
 		<div class="mt-2 tags text-center flex justify-around gap-2">
 			<button class="border-2 px-4 py-1 bg-red-100 border-2 text-red-800 border-red-600 rounded-lg"
 				>Chats</button
@@ -56,13 +69,14 @@
 	<div class="right flex flex-col">
 		<a href="../profil" class="user flex items-center gap-2 mb-5">
 			<img src="https://via.placeholder.com/70" alt="Photo de profile" />
-			<p class="text-lg">@MSafiax</p>
+			<p class="text-lg">{data.data.user.login}</p>
 		</a>
-		<input
+		<p>Catégorie : {data.data.category.name}</p>
+		<textarea
 			type="text"
 			id="description"
 			name="description"
-			placeholder={data.data.description}
+			value={data.data.description}
 			required
 		/>
 		<div class="flex items-end gap-2">
