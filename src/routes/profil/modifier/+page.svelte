@@ -30,27 +30,6 @@
                         </div>
                     </div>
 
-                    <!-- Bio -->
-                    <div class="col-span-full">
-                        <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
-                        <div class="mt-2">
-                            <textarea id="about" name="about" rows="3"
-                                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2 resize-none"
-                                      placeholder="Décrivez-vous brièvement ici."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Photo -->
-                    <div class="col-span-full">
-                        <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                        <div class="mt-2 flex items-center gap-x-3">
-                            <img src="https://via.placeholder.com/70" alt="Votre photo de profil">
-                            <input id="photo" type="file" class="hidden">
-                            <label for="photo"
-                                   class="cursor-pointer rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Changer</label>
-                        </div>
-                    </div>
-
                     <!-- Mot de passe -->
                     <div class="col-span-full">
                         <label for="oldPassword" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe
