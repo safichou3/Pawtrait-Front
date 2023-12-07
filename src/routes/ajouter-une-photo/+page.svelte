@@ -2,6 +2,11 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
+	/** @type {import('./$types').ActionData} */
+	export let form;
+	import Swal from 'sweetalert2'
+
+
 	function handleFileInputChange() {
 		const fileInput = document.getElementById('photoUrl');
 		console.log('Fichier sélectionné :', fileInput.files[0]);
@@ -64,106 +69,132 @@
 	}
 </script>
 
-		<form
-			class="bg-white md:col-span-2"
-			method="POST"
-			action="?/sendImage"
-			enctype="multipart/form-data"
-		>
-			<div class="px-4 py-6 sm:p-8">
-				<div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-					<div class="col-span-full">
-						<label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900"  
-							>Ajouter une photo d'animal</label
-						>
-						<div class="col-span-full">
-							<div
-								class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
-							>
-								<div class="text-center">
-									<div class="mt-4 flex text-sm leading-6 text-gray-600">
-										<!-- Zone de glisser-déposer -->
+<form
+	class="bg-white md:col-span-2"
+	method="POST"
+	action="?/sendImage"
+	enctype="multipart/form-data"
+>
+	<div class="px-4 py-6 sm:p-8">
+		<div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+			<div class="col-span-full">
+				<label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900"
+					>Ajouter une photo d'animal</label
+				>
+				<div class="col-span-full">
+					<div
+						class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
+					>
+						<div class="text-center">
+							<div class="mt-4 flex text-sm leading-6 text-gray-600">
+								<!-- Zone de glisser-déposer -->
 
-										<div
-											id="drop-area"
-											on:dragover={handleDragOver}
-											on:dragenter={handleDragOver}
-											on:dragleave={handleDragLeave}
-											on:drop={handleDrop}
-										>
-											<!-- Bouton personnalisé pour ouvrir la boîte de dialogue de téléchargement de fichier -->
-											<button type="button" id="customFileBtn" on:click={openFileInput}>
-												Ajoute une image
-											</button>
-											<input
-												id="photoUrl"
-												name="photoUrl"
-												type="file"
-												class="sr-only"
-												on:change={handleFileInputChange}
-											/>
-											<p class="pl-1">ou glisse-la ici</p>
-											<p id="file-name-display" class="text-xs leading-5 text-gray-600" />
-                      <img id="image-preview" src="" alt="Image Preview" class="hidden max-w-full mt-4">
-
-										</div>
-									</div>
-
-									<p class="text-xs leading-5 text-gray-600">Formats acceptés PNG, JPG, GIF</p>
+								<div
+									id="drop-area"
+									on:dragover={handleDragOver}
+									on:dragenter={handleDragOver}
+									on:dragleave={handleDragLeave}
+									on:drop={handleDrop}
+								>
+									<!-- Bouton personnalisé pour ouvrir la boîte de dialogue de téléchargement de fichier -->
+									<button type="button" id="customFileBtn" on:click={openFileInput}>
+										Ajoute une image
+									</button>
+									<input
+										id="photoUrl"
+										name="photoUrl"
+										type="file"
+										class="sr-only"
+										on:change={handleFileInputChange}
+									/>
+									<p class="pl-1">ou glisse-la ici</p>
+									<p id="file-name-display" class="text-xs leading-5 text-gray-600" />
+									<img
+										id="image-preview"
+										src=""
+										alt="Image Preview"
+										class="hidden max-w-full mt-4"
+									/>
 								</div>
 							</div>
-						</div>
-					</div>
 
-					<div class="sm:col-span-4">
-						<label for="categoryId" class="block text-sm font-medium leading-6 text-gray-900"
-							>Catégorie</label
-						>
-						<div class="mt-2">
-							<select
-								id="categoryId"
-								name="categoryId"
-								class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-							>
-								{#if data.categories}
-									{#each data.categories as category (category.id)}
-										<option value={category.id}>{category.name}</option>
-									{/each}
-								{/if}
-							</select>
-						</div>
-					</div>
-
-					<div class="col-span-full">
-						<label for="about" class="block text-sm font-medium leading-6 text-gray-900"
-							>Description</label
-						>
-						<p class="mt-3 text-sm leading-6 text-gray-600">
-							Décris la photo en détail (exemple: Ceci est un lapin qui joue aux cartes).
-						</p>
-						<div class="mt-2">
-							<textarea
-								id="description"
-								name="description"
-								rows="3"
-								class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-							/>
+							<p class="text-xs leading-5 text-gray-600">Formats acceptés PNG, JPG, GIF</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div
-				class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8"
-			>
-				<button type="button" class="text-sm font-semibold leading-6 text-gray-900">Retour</button>
-				<button
-					type="submit"
-					class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-					>Envoyer la photo</button
-				>
-			</div>
-		</form>
 
+			<div class="sm:col-span-4">
+				<label for="categoryId" class="block text-sm font-medium leading-6 text-gray-900"
+					>Catégorie</label
+				>
+				<div class="mt-2">
+					<select
+						id="categoryId"
+						name="categoryId"
+						class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+					>
+						{#if data.categories}
+							{#each data.categories as category (category.id)}
+								<option value={category.id}>{category.name}</option>
+							{/each}
+						{/if}
+					</select>
+				</div>
+			</div>
+
+			<div class="col-span-full">
+				<label for="about" class="block text-sm font-medium leading-6 text-gray-900"
+					>Description</label
+				>
+				<p class="mt-3 text-sm leading-6 text-gray-600">
+					Décris la photo en détail (exemple: Ceci est un lapin qui joue aux cartes).
+				</p>
+				<div class="mt-2">
+					<textarea
+						id="description"
+						name="description"
+						rows="3"
+						class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+		<button type="button" class="text-sm font-semibold leading-6 text-gray-900">Retour</button>
+		<button
+			type="submit"
+			class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+			>Envoyer la photo</button
+		>
+	</div>
+</form>
+
+{#if form?.success == "test1"}
+{Swal.fire({
+	title: "Enregistrée",
+	text: "Photo ajoutée avec succès",
+	icon: "success"
+  })}
+{/if}
+
+{#if form?.success == "erreurRequete"}
+{Swal.fire({
+	title: "Attention",
+	text: "Erreur au moment de l'ajout",
+	icon: "error"
+  })}
+{/if}
+
+
+{#if form?.success == "test4"}
+{Swal.fire({
+	title: "Attention",
+	text: "Les contenus sexuels sont interdits !",
+	icon: "error"
+  })}
+{/if}
 
 <style>
 	#customFileBtn {
@@ -199,7 +230,7 @@
 		display: none;
 	}
 
-  #image-preview{
-    border-radius: 20px;
-  }
+	#image-preview {
+		border-radius: 20px;
+	}
 </style>
