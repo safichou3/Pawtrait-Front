@@ -2,13 +2,13 @@
     <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <div class="pb-6">
-          <a href="/" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Accueil</a>
+          <a href="/" class="text-sm leading-6 text-gray-600 hover:text-gray-900">ACCUEIL</a>
         </div>
         <div class="pb-6">
-          <a href="/galerie" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Galerie</a>
+          <a href="/galerie" class="text-sm leading-6 text-gray-600 hover:text-gray-900">GALERIE</a>
         </div>
         <div class="pb-6">
-          <a href="/classement" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Photo de la semaine</a>
+          <a href="/classement" class="text-sm leading-6 text-gray-600 hover:text-gray-900">PHOTO DE LA SEMAINE</a>
         </div>
         <div class="pb-6">
           <a href="/connexion" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Se connecter</a>

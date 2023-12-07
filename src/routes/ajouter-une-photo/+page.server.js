@@ -64,7 +64,7 @@ export const actions = {
                 const photoUrl = cloudinaryResponse.secure_url;
 
                 // Appel de l'API Flask pour la détection NSFW
-                const detectNSFWResponse = await fetch('http://localhost:5000/api/detect-nsfw', {
+                const detectNSFWResponse = await fetch('http://localhost:5000/upload', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -76,7 +76,8 @@ export const actions = {
 
                 if (detectNSFWResponse.ok) {
                     const nsfwData = await detectNSFWResponse.json();
-                    const isNSFW = nsfwData[0]['porn'] > 0.5;  // Adapter en fonction de votre modèle
+                    console.log(nsfwData);
+                    const isNSFW = nsfwData[0] && nsfwData[0]['porn'] > 0.5;
 
                     // Faites quelque chose avec le résultat de la détection NSFW
                     console.log('Est-ce NSFW ?', isNSFW);
