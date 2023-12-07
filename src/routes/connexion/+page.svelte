@@ -5,8 +5,8 @@
  /** @type {import('./$types').ActionData} */
  export let form;
 
-  console.log(data.data.username);
-  console.log(data.data.responseData.token); // Access the token here
+  // console.log(data.data.username);
+  // console.log(data.data.responseData.token); // Access the token here
 
 </script>
 <div>
