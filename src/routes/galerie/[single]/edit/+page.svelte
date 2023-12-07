@@ -58,7 +58,13 @@
 			<img src="https://via.placeholder.com/70" alt="Photo de profile" />
 			<p class="text-lg">@MSafiax</p>
 		</a>
-		<p>{data.data.description}</p>
+		<input
+			type="text"
+			id="description"
+			name="description"
+			placeholder={data.data.description}
+			required
+		/>
 		<div class="flex items-end gap-2">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
