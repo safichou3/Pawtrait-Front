@@ -31,13 +31,4 @@ export async function load({request}) {
         return {props: {error: error.message}};
     }
 }
-/*
-function decodeSessionId(sessionId) {
-    const parts = sessionId.split('.');
-    if (parts.length === 3) {
-        const payload = atob(parts[1]);
-        const payloadObj = JSON.parse(payload);
-        return payloadObj.sub; // Adjust based on your JWT structure
-    }
-    throw new Error('Invalid session ID');
-}*/
+

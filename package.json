@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"cloudinary": "^1.41.0",
 		"macy": "^2.5.1",
 		"svelte-carousel": "^1.0.25",
 		"svelte-infinite-scroll": "^2.0.1"
