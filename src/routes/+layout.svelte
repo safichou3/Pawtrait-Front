@@ -14,8 +14,13 @@
 	<Header {sessionId} {userId} />
 </header>
 
+<<<<<<< HEAD
 <main>
 	<slot />
+=======
+<main class="overflow-x-hidden">
+    <slot></slot>
+>>>>>>> feat/stylesAllPages
 </main>
 
 <footer>
