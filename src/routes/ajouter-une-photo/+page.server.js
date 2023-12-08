@@ -78,8 +78,6 @@ export const actions = {
                 console.log('Is it NSFW?', isNSFW);
 
                 if (!isNSFW) {
-                    console.log("false");
-
                     // Encode file in base64
                     const fileBase64 = await file.arrayBuffer()
                         .then(buffer => Buffer.from(buffer).toString('base64'));

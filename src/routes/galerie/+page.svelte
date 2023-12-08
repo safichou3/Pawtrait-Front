@@ -6,6 +6,8 @@
   
     let likedImages = []; // Store liked images' IDs here
     let searchTerm = '';
+    let selectedCategory = ''; // Introduce selectedCategory variable
+
   
     onMount(() => {
       return () => {
@@ -39,9 +41,22 @@
     const randomIndex = Math.floor(Math.random() * sizes.length);
     return sizes[randomIndex];
   }
+
+  let loading = true; // Initialize the loading state to true
+
+  onMount(async () => {
+    // Simulate an asynchronous data fetch (replace this with your actual data fetching logic)
+    await new Promise(resolve => setTimeout(resolve, 2000)); // Simulating a 2-second delay
+    loading = false; // Set loading to false once data is fetched
+  });
   </script>
   
   <div class="bg-white">
+    {#if loading}
+    <!-- Loader HTML (replace this with your actual loader component) -->
+    <div class="three col">
+      <div class="loader" id="loader-7"></div>
+    </div>  {:else}
     <div>
       <main class="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8">
         <div class="border-b border-gray-200 pb-10 pt-12">
@@ -83,19 +98,19 @@ placeholder="Recherchez par description..."
                             </label>
                         </div>
                         <div class="pt-5">
-                            <fieldset>
-                                <legend class="block text-sm font-medium text-gray-900">Catégorie</legend>                                        
-                                {#each data.dataCategories as dataKey}
-
-                                <div class="space-y-3 pt-6">
-                        <li>
-                            {dataKey.name}
-                        </li>
-                    </div>
-                        {/each}
-                                    
-                                
-                            </fieldset>
+                          <fieldset>
+                            <legend class="block text-sm font-medium text-gray-900">Catégorie</legend>
+                            <select bind:value={selectedCategory} class="border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
+                              <option value="">Toutes les catégories</option>
+                              {#each data.dataCategories as category}
+                                {#if category.name !== null}
+                                  <option value={category.name}>{category.name}</option>
+                                {/if}
+                              {/each}
+                              
+                              
+                            </select>
+                          </fieldset>
                         </div>
                     </form>
                 </div>
@@ -107,19 +122,24 @@ placeholder="Recherchez par description..."
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                   <!-- Foreach -->
                   {#each data.data as dataKey}
-                    {#if dataKey.description.toLowerCase().includes(searchTerm.toLowerCase())}
-                      <div class="mb-4">
-                        <a href="/galerie/{dataKey.id}">
-                          <img src="{dataKey.photoUrl}" alt="" class="rounded-xl image-size-{getRandomSize()}">
-                        </a>
-                      </div>
-                    {/if}
-                  {/each}
+  {#if dataKey.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (selectedCategory === '' || dataKey.category.id === selectedCategory)}
+                    <div class="mb-4">
+                      <a href="/galerie/{dataKey.id}">
+                        <img src="{dataKey.photoUrl}" alt="" class="rounded-xl image-size-{getRandomSize()}">
+                      </a>
+                    </div>
+                  {/if}
+                {/each}
+                
+                
                 </div>
               </section>
         </div>
       </main>
     </div>
+      {/if}
+
   </div>
   
   <style>
@@ -137,5 +157,47 @@ placeholder="Recherchez par description..."
     width: 100%;
     height: auto;
   }
+  
+  .loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure the loader is above other elements */
+  }
+
+  #loader-7 {
+    -webkit-perspective: 120px;
+    -moz-perspective: 120px;
+    -ms-perspective: 120px;
+    perspective: 120px;
+  }
+
+  #loader-7:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #8a34db;
+    animation: flip 1s infinite;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotate(0);
+    }
+
+    50% {
+      transform: rotateY(180deg);
+    }
+
+    100% {
+      transform: rotateY(180deg) rotateX(180deg);
+    }
+  }
+
   </style>
   
