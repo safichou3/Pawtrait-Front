@@ -1,14 +1,24 @@
 <script>
-    import logo from '$lib/assets/pawtrait.png'; 
-    import { page } from '$app/stores';
-    import { navigating } from '$app/stores';
-    
-    let routeID = $page.route.id;
-    $: if($navigating)  routeID = $page.route.id;
+  import logo from '$lib/assets/pawtrait.png';
+  import { page } from '$app/stores';
+  import { navigating } from '$app/stores';
+  import { onMount } from 'svelte';
+  
+  let menuOpen = false;
+  let routeID = $page.route.id;
+  let isLoggedIn = false; // Initially assume the user is not logged in
 
+  $: if ($navigating) routeID = $page.route.id;
 
-    let menuOpen = false;
+  // Check if "userid" cookie is present on component mount
+  onMount(() => {
+    const cookies = document.cookie;
+    console.log(cookies)
+    const userIdCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('userid='));
+    isLoggedIn = !!userIdCookie;
+  });
 </script>
+
 
 <nav class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,6 +39,7 @@
             <a href="/classement"   class={routeID === '/classement' ? 'border-indigo-500 text-gray-900 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'}>
              Classement
             </a>
+            {#if isLoggedIn}
             <a href="/ajouter-une-photo"   class={routeID === '/ajouter-une-photo' ? 'text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' : 'text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium'}>
 
               <button type="button" class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm ">
@@ -38,6 +49,7 @@
                 Ajouter une photo
               </button>          
             </a>
+            {/if}
           </div>
 
         </div>
