@@ -99,42 +99,39 @@ placeholder="Recherchez par description..."
                         </div>
                         <div class="pt-5">
                           <fieldset>
-                            <legend class="block text-sm font-medium text-gray-900">Catégorie</legend>
-                            <select bind:value={selectedCategory} class="border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
-                              <option value="">Toutes les catégories</option>
+                              <legend class="block text-sm font-medium text-gray-900">Catégorie</legend>
                               {#each data.dataCategories as category}
-                                {#if category.name !== null}
-                                  <option value={category.name}>{category.name}</option>
-                                {/if}
+                                  {#if category.name !== null}
+                                      <label class="flex items-center">
+                                          <input type="checkbox" bind:group={selectedCategory} value={category.id} class="mr-2">
+                                          <span class="text-sm text-gray-700">{category.name}</span>
+                                      </label>
+                                  {/if}
                               {/each}
-                              
-                              
-                            </select>
                           </fieldset>
-                        </div>
+                      </div>
                     </form>
                 </div>
             </aside>
   
             <section aria-labelledby="product-heading" class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
-                <h2 id="product-heading" class="sr-only">Products</h2>
-      
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+              <h2 id="product-heading" class="sr-only">Products</h2>
+          
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                   <!-- Foreach -->
                   {#each data.data as dataKey}
-  {#if dataKey.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (selectedCategory === '' || dataKey.category.id === selectedCategory)}
-                    <div class="mb-4">
-                      <a href="/galerie/{dataKey.id}">
-                        <img src="{dataKey.photoUrl}" alt="" class="rounded-xl image-size-{getRandomSize()}">
-                      </a>
-                    </div>
-                  {/if}
-                {/each}
-                
-                
-                </div>
-              </section>
+                      {#if dataKey.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
+                          (!selectedCategory.length || selectedCategory.includes(dataKey.category.id))}
+                          <div class="mb-4">
+                              <a href="/galerie/{dataKey.id}">
+                                  <img src="{dataKey.photoUrl}" alt="" class="rounded-xl image-size-{getRandomSize()}">
+                              </a>
+                          </div>
+                      {/if}
+                  {/each}
+              </div>
+          </section>
+          
         </div>
       </main>
     </div>
