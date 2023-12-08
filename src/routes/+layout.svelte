@@ -8,7 +8,7 @@
     <Header/>
 </header>
 
-<main>
+<main class="overflow-x-hidden">
     <slot></slot>
 </main>
 
