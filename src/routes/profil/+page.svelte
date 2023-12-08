@@ -30,6 +30,13 @@
                        class="bg-violet-600 text-sm font-semibold text-white hover:bg-violet-500 duration-300 py-2 px-5 rounded-lg">Modifier
                         le profil</a>
                 </div>
+                <div class="btn flex justify-center py-3">
+                    <a href="/deconnexion"
+                    class="bg-red-600 text-sm font-semibold text-white hover:bg-red-500 duration-300 py-2 px-5 mt-3 rounded-lg mx-auto">
+                    Se déconnecter
+                    </a>
+                </div>
+               
             </div>
         </div>
     </div>
