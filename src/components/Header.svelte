@@ -2,7 +2,6 @@
   import logo from '$lib/assets/pawtrait.png';
   import { page } from '$app/stores';
   import { navigating } from '$app/stores';
-  import { onMount } from 'svelte';
   
   let menuOpen = false;
   let routeID = $page.route.id;
