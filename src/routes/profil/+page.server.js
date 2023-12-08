@@ -10,8 +10,6 @@ export async function load({request}) {
     }
 
     try {
-        // const userId = decodeSessionId(sessionId);
-        // const response = await fetch(`http://localhost:8080/api/admin/users/public/${userId}`, {
         const response = await fetch(`http://localhost:8080/api/account`, {
             headers: {
                 'Authorization': `Bearer ${sessionId}`
@@ -34,13 +32,3 @@ export async function load({request}) {
     }
 }
 
-
-function decodeSessionId(sessionId) {
-    const parts = sessionId.split('.');
-    if (parts.length === 3) {
-        const payload = atob(parts[1]);
-        const payloadObj = JSON.parse(payload);
-        return payloadObj.sub; // Adjust based on your JWT structure
-    }
-    throw new Error('Invalid session ID');
-}

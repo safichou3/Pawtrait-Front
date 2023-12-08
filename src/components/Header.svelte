@@ -31,13 +31,13 @@
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
             <a href="/"   class={routeID === '/' ? 'border-indigo-500 text-gray-900 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'}>
-             Accueil
+             ACCUEIL
             </a>
             <a href="/galerie"   class={routeID === '/galerie' ? 'border-indigo-500 text-gray-900 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'}>
-              Galerie
+              GALERIE
             </a>
             <a href="/classement"   class={routeID === '/classement' ? 'border-indigo-500 text-gray-900 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'}>
-             Classement
+             PHOTO DE LA SEMAINE
             </a>
             {#if isLoggedIn}
             <a href="/ajouter-une-photo"   class={routeID === '/ajouter-une-photo' ? 'text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium' : 'text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium'}>

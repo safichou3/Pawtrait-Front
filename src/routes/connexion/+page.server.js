@@ -1,4 +1,3 @@
-
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
     return {
@@ -9,7 +8,7 @@ export async function load() {
             responseData: {}
         }
     };
-};
+}
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -18,6 +17,7 @@ export const actions = {
         const username = data.get('username');
         const password = data.get('password');
         const rememberMe = data.get('rememberMe');
+        
         try {
             const response = await fetch('http://localhost:8080/api/authenticate', {
                 method: 'POST',
@@ -30,9 +30,10 @@ export const actions = {
                     rememberMe,
                 }),
             });
+
             if (response.ok) {
                 const responseData = await response.json();
-
+                
                 cookies.set('sessionid', responseData.id_token);
 
                 const response2 = await fetch('http://localhost:8080/api/account', {
@@ -47,15 +48,24 @@ export const actions = {
 
                 cookies.set('userid', dataUser.id);
 
-                return { success: true };
+                // Ajout de la logique pour empêcher la redirection en cas d'échec de la récupération des données utilisateur
+                if (dataUser.id) {
+                    return { success: "connecter" };
+                } else {
+                    return { success: "erreur", error: 'Failed to retrieve user data' };
+                }
 
             } else {
-                const errorResponseData = await response.json();
-                return { error: errorResponseData.message };
+                // Gestion appropriée des erreurs d'authentification
+                if (response.status === 401) {
+                    return { success: "erreur", error: 'Invalid credentials' };
+                } else {
+                    return { success: "erreur", error: 'Request error' };
+                }
             }
         } catch (error) {
             console.error('Erreur lors de la requête:', error);
-            return { error: 'Une erreur s\'est produite lors de la requête.' };
+            return { success: "erreur", error: 'An error occurred during the request.' };
         }
     }
 };
