@@ -1,6 +1,7 @@
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ cookies, params }) {
     try {
+        console.log(params);
         // Récupérer le token d'accès de vos cookies ou de l'endroit approprié
         const accessToken = cookies.get('sessionid');
 
@@ -29,8 +30,6 @@ export async function load({ cookies, params }) {
     }
 }
 
-import { redirect } from '@sveltejs/kit';
-
 /** @type {import('./$types').Actions} */
 export const actions = {
     delete: async ({ cookies, params }) => {
@@ -40,22 +39,21 @@ export const actions = {
             const response = await fetch(`http://localhost:8080/api/photos/` + params.single, {
                 method: 'DELETE',
                 headers: {
-                    // 'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}` // Ajouter le token d'accès à l'en-tête
                 }
-                // body: JSON.stringify({ action: 'delete' })
             });
 
             // Check if both requests were successful
             if (response.ok) {
                 console.log('ok');
-
-                throw redirect(302, '/');
+                return { success: "delete" };
             } else {
                 console.error('Échec de la requête:', response.status, response.statusText, await response.json());
             }
         } catch (error) {
             console.error('Erreur lors de la requête:', error);
+            
         }
     },
 };
