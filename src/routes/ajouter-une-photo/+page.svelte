@@ -70,7 +70,7 @@
 </script>
 
 <form
-	class="bg-white md:col-span-2"
+	class="bg-white md:col-span-2 flex flex-col items-center"
 	method="POST"
 	action="?/sendImage"
 	enctype="multipart/form-data"

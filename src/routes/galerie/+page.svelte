@@ -81,7 +81,7 @@ onMount(async () => {
                   {#each data.dataCategories as category}
                     {#if category.name !== null}
                       <label class="flex items-center">
-                        <input type="checkbox" bind:group={selectedCategory} value={category.id} class="mr-2">
+                        <input type="checkbox" bind:group={selectedCategory} value={category.id} class="mr-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                         <span class="text-sm text-gray-700">{category.name}</span>
                       </label>
                     {/if}
