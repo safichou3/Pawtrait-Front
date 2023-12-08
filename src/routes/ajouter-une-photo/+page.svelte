@@ -177,6 +177,11 @@
 	text: "Photo ajoutée avec succès",
 	icon: "success"
   })}
+   {#if typeof window !== 'undefined'}
+   {setTimeout(() => {
+	 window.location.href = '/galerie';
+   }, 1500)}
+ {/if}
 {/if}
 
 {#if form?.success == "erreurRequete"}

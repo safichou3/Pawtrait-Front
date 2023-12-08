@@ -11,7 +11,6 @@ export async function load({ cookies }) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`, // Ajouter le token d'accès à l'en-tête
             },
-            // Vous n'avez pas besoin du corps (body) pour une requête GET
         });
 
         // Fetch categories
@@ -23,13 +22,10 @@ export async function load({ cookies }) {
             },
         });
 
-        // Check if both requests were successful
         if (response.ok && responseCategories.ok) {
             const data = await response.json();
             const dataCategories = await responseCategories.json();
-            // console.log(dataCategories);
             
-            // Returning an object with data and dataCategories
             return { data, dataCategories };
         } else {
             console.error('Échec de la requête:', response.status, response.statusText, await response.json());
