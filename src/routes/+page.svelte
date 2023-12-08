@@ -8,24 +8,44 @@
 	// PHOTO EXPORT IMAGE
 	import photoExemple from '$lib/assets/photoExemple.png';
 
+	/** @type {import('./$types').PageData} */
+	export let data;
+
+	const sessionId = data.accessToken;
+	const userId = data.accessToken2;
 </script>
 
-<div class="relative overflow-hidden bg-cover bg-no-repeat bg-[70%] h-[600px] bg-[url('https://res.cloudinary.com/dati0zk7b/image/upload/v1701946817/qdyrtcuthapsmrpgxhxr.jpg')]">
-    <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0%)]">
-        <div class="flex h-full items-center justify-center">
-            <div class="px-6 text-center text-white md:px-12">
-                <h1 class="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
-                    Explore le monde fascinant <br /><span>des animaux</span>
-                </h1>
-                <a class="mb-2 inline-block rounded-full border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
-                    data-te-ripple-init data-te-ripple-color="light" href="/inscription" role="button">Se connecter</a>
-                <a class="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
-                    data-te-ripple-init data-te-ripple-color="light" href="#comment" role="button">Découvrir</a>
-            </div>
-        </div>
-    </div>
+<div
+	class="relative overflow-hidden bg-cover bg-no-repeat bg-[70%] h-[600px] bg-[url('https://res.cloudinary.com/dati0zk7b/image/upload/v1701946817/qdyrtcuthapsmrpgxhxr.jpg')]"
+>
+	<div
+		class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0%)]"
+	>
+		<div class="flex h-full items-center justify-center">
+			<div class="px-6 text-center text-white md:px-12">
+				<h1 class="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+					Explore le monde fascinant <br /><span>des animaux</span>
+				</h1>
+				{#if !sessionId}
+				<a
+					class="mb-2 inline-block rounded-full border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
+					data-te-ripple-init
+					data-te-ripple-color="light"
+					href="/connexion"
+					role="button">Se connecter</a
+				>
+				<a
+					class="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
+					data-te-ripple-init
+					data-te-ripple-color="light"
+					href="/connexion"
+					role="button">Découvrir</a
+				>
+				{/if}
+			</div>
+		</div>
+	</div>
 </div>
-
 
 <div
 class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
@@ -34,9 +54,8 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 	fill="currentColor"></path>
 </svg>
 </div>
-<br>
-<br>
-
+<br />
+<br />
 
 <div class="overflow-hidden bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -49,7 +68,9 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 					<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
 						Comment ça marche ?
 					</p>
-					<p class="mt-6 text-lg leading-8 text-gray-600">Vote pour l'animal le plus mignon, ou fait de ton animal une star pour le mois !</p>
+					<p class="mt-6 text-lg leading-8 text-gray-600">
+						Vote pour l'animal le plus mignon, ou fait de ton animal une star pour le mois !
+					</p>
 					<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
 						<div class="relative pl-9">
 							<dt class="inline font-semibold text-gray-900">
@@ -77,9 +98,9 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 											stroke-linejoin="round"
 											d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
 										/>
-									</svg></svg>
-									Photo shoot. 
-								
+									</svg></svg
+								>
+								Photo shoot.
 							</dt>
 							<dd class="inline">
 								Prends ton animal en photo dans des positions droles, dans des moments calins, et
@@ -107,9 +128,9 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 											stroke-linejoin="round"
 											d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
 										/>
-									</svg></svg>
-									Publication. 
-								
+									</svg></svg
+								>
+								Publication.
 							</dt>
 							<dd class="inline">
 								Met en ligne en postant la plus belle et la plus mignonne des photos dans la section
@@ -124,21 +145,30 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 									fill="currentColor"
 									aria-hidden="true"
 								>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
-                </svg>
-                </svg>
-								Place aux votes. 
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"
+										/>
+									</svg>
+								</svg>
+								Place aux votes.
 							</dt>
-							<dd class="inline">
-								Laisse ensuite les visiteurs voter leurs animaux preférés.🐱
-							</dd> 
+							<dd class="inline">Laisse ensuite les visiteurs voter leurs animaux preférés.🐱</dd>
 						</div>
 					</dl>
 				</div>
 			</div>
 			<img
-      src="{photoExemple}"
+				src={photoExemple}
 				alt="Product screenshot"
 				class="animate-spin w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
 				width="2432"

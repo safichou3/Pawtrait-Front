@@ -53,10 +53,11 @@
   
   <div class="bg-white">
     {#if loading}
+    <div style="height: 700px;">
     <!-- Loader HTML (replace this with your actual loader component) -->
     <div class="three col">
       <div class="loader" id="loader-7"></div>
-    </div>  {:else}
+    </div> </div> {:else}
     <div>
       <main class="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8">
         <div class="border-b border-gray-200 pb-10 pt-12">
