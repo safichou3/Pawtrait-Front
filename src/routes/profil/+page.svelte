@@ -1,6 +1,8 @@
 <script>
     export let data;
     export let error;
+    export let form;
+    
 </script>
 {#if error}
     <p>An error occurred: {error}</p>
@@ -31,11 +33,12 @@
                         le profil</a>
                 </div>
                 <div class="btn flex justify-center py-3">
-                    <a href="/deconnexion"
-                    class="bg-red-600 text-sm font-semibold text-white hover:bg-red-500 duration-300 py-2 px-5 mt-3 rounded-lg mx-auto">
-                    Se déconnecter
-                    </a>
-                </div>
+
+                    <form method="POST" action="?/deconnexion">
+                        <button class="bg-red-600 text-sm font-semibold text-white hover:bg-red-500 duration-300 py-2 px-5 mt-3 rounded-lg mx-auto">
+                    Se déconnecter</button>
+                </form>
+            </div>
                
             </div>
         </div>
@@ -59,4 +62,19 @@
         </div>
         <p>Ajoute des photos à ton profil</p>
     </div>
+{/if}
+
+
+{#if form?.success == "deconnexion"}
+  {Swal.fire({
+    icon: "Super!",
+    title: "Vous allez être redirigé vers la galerie.",
+    showConfirmButton: false,
+    timer: 1500
+  })}
+  {#if typeof window !== 'undefined'}
+    {setTimeout(() => {
+      window.location.href = '/galerie';
+    }, 1500)}
+  {/if}
 {/if}

@@ -31,4 +31,17 @@ export async function load({request}) {
         return {props: {error: error.message}};
     }
 }
-
+/** @type {import('./$types').Actions} */
+export const actions = {
+    deconnexion: async ({ cookies }) => {
+      try {
+        await cookies.delete('sessionid', '{ path: '/' }');
+        await cookies.delete('userid', '{ path: '/' }');
+        return { success: "deconnexion" };
+      } catch (error) {
+        console.error('Erreur lors de la déconnexion :', error);
+        return { success: false, error: 'Échec de la déconnexion' };
+      }
+    },
+  };
+  
