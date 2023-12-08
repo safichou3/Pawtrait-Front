@@ -4,17 +4,10 @@
 
   import { onMount } from 'svelte';
 
-  let likedImages = []; // Store liked images' IDs here
+  let likedImages = []; 
   let searchTerm = '';
-  let selectedCategory = []; // Introduce selectedCategory variable as an array
-
-  onMount(() => {
-    return () => {
-      // Clean up if necessary
-    };
-  });
-
-  let likesCount = {}; // Maintains the likes count for each image ID
+  let selectedCategory = [];
+  let likesCount = {}; 
 
   function toggleLike(id) {
     if (likedImages.includes(id)) {
@@ -26,7 +19,6 @@
     }
   }
 
-  // Initialize likesCount when component mounts
   onMount(() => {
     let tempCount = {};
     data.data.forEach(image => {
@@ -41,19 +33,17 @@ function getRandomSize() {
   return sizes[randomIndex];
 }
 
-let loading = true; // Initialize the loading state to true
+let loading = true; 
 
 onMount(async () => {
-  // Simulate an asynchronous data fetch (replace this with your actual data fetching logic)
-  await new Promise(resolve => setTimeout(resolve, 2000)); // Simulating a 2-second delay
-  loading = false; // Set loading to false once data is fetched
+  await new Promise(resolve => setTimeout(resolve, 2000)); 
+  loading = false; 
 });
 </script>
 
 <div class="bg-white">
 {#if loading}
   <div style="height: 700px;">
-    <!-- Loader HTML (replace this with your actual loader component) -->
     <div class="three col">
       <div class="loader" id="loader-7"></div>
     </div>
@@ -69,8 +59,6 @@ onMount(async () => {
       <div class="pb-24 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
         <aside>
           <h2 class="sr-only">Filters</h2>
-
-          <!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
           <button type="button" class="inline-flex items-center lg:hidden">
             <span class="text-sm font-medium text-gray-700">Filters</span>
             <svg class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -108,7 +96,6 @@ onMount(async () => {
           <h2 id="product-heading" class="sr-only">Products</h2>
     
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-            <!-- Foreach -->
             {#each data.data as dataKey}
               {#if dataKey.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
                 (!selectedCategory.length || (dataKey.category && selectedCategory.includes(dataKey.category.id)))}
