@@ -18,9 +18,9 @@
                     Explore le monde fascinant <br /><span>des animaux</span>
                 </h1>
                 <a class="mb-2 inline-block rounded-full border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
-                    data-te-ripple-init data-te-ripple-color="light" href="/connexion" role="button">Se connecter</a>
+                    data-te-ripple-init data-te-ripple-color="light" href="/inscription" role="button">Se connecter</a>
                 <a class="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
-                    data-te-ripple-init data-te-ripple-color="light" href="/connexion" role="button">Découvrir</a>
+                    data-te-ripple-init data-te-ripple-color="light" href="#comment" role="button">Découvrir</a>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
 <div
 class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
-<svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg" class="color-white">
   <path d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
 	fill="currentColor"></path>
 </svg>
@@ -43,7 +43,7 @@ class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[5
 		<div
 			class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
 		>
-			<div class="lg:pr-8 lg:pt-4">
+			<div class="lg:pr-8 lg:pt-4" id="comment">
 				<div class="lg:max-w-lg">
 					<h2 class="text-base font-semibold leading-7 text-indigo-600">La photo de la semaine</h2>
 					<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
