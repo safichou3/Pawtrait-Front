@@ -14,8 +14,8 @@
 	<Header {sessionId} {userId} />
 </header>
 
-<main>
-	<slot />
+<main class="overflow-x-hidden">
+    <slot></slot>
 </main>
 
 <footer>
